@@ -25,11 +25,33 @@ const isValidEmail = (email) =>{
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }
+
+
+// check required fields
+
+const checkRequired = (inputArr)=>{
+    inputArr.forEach((item)=>{
+        if(item.value.trim() === ''){
+            showError(item, `${getFieldName(item)} is required`);
+        } else {
+            showSuccess(item);
+        }
+
+    });
+}
+
+// Get fieldname
+const getFieldName = (input)=>{
+    return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+
+}
 //Event Listener
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
 
-    //username
+    checkRequired([username, email, password, password2]);
+
+   /*  //username
     if(username.value === '') {
         showError(username, 'Username is required')
     } else {
@@ -57,6 +79,8 @@ form.addEventListener('submit', (e)=>{
         showError(password2, 'Confirm password is required')
     } else {
         showSuccess(password2);
-    }
+    } */
+
+
     
 })
