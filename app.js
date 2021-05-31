@@ -72,6 +72,7 @@ const getFieldName = (input)=>{
     return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 
 }
+
 //Event Listener
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
@@ -81,38 +82,4 @@ form.addEventListener('submit', (e)=>{
     checkLength(password, 6, 25);
     checkEmail(email);
     checkPassswordsMatch(password, password2);
-
-
-   /*  //username
-    if(username.value === '') {
-        showError(username, 'Username is required')
-    } else {
-        showSuccess(username);
-    }
-
-    //email
-    if(email.value === '') {
-        showError(email, 'Email is required')
-    } else if(!isValidEmail(email.value)){
-        showError(email, 'Email is not valid')
-    } else {
-        showSuccess(email);
-    }
-
-    //password
-    if(password.value === '') {
-        showError(password, 'Password is required')
-    } else {
-        showSuccess(password);
-    }
-
-    //password2
-    if(password2.value === '') {
-        showError(password2, 'Confirm password is required')
-    } else {
-        showSuccess(password2);
-    } */
-
-
-    
 })
